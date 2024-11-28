@@ -3,22 +3,9 @@
 // ArrayList i Java - lagras konsekutivt + dynamisk
 #include <vector> 
 // Vector i C++ - lagras konsekutivt + dynamisk
+#include <iomanip>
 
-using namespace std;
-int main2(){
-    string namn = "Stefan";
-    namn += " Holmberg";
-
-
-  
-    int age;
-    
-
-    cout << "Tjena" << endl;
-    //"Hej Stefan du är bara 52 dvs evigt ung"
-    cout << "Hej " << namn << " du är bara " << age <<  " years dvs evigt ung";
-    return 0;
-}
+#include "person.h"
 
 // string compare
 // string!
@@ -48,8 +35,34 @@ void changeAge(int &age2){
     age2 = 99;
 }
 
+
+
 int main(){
-    //Player *p = new Player();
+    // Product p = new Product("Mugg",12);
+    Person stefan(52,"Stefan", "Holmberg"); // stackallokerat
+
+    //Person *stefansPointer = new Person(); // heapallokerat  AVOID!!!
+
+    try{
+        stefan.setAge(52);
+    }
+    catch(std::exception &ex){
+        std::cout << ex.what() << std::endl;
+    }
+    std::cout << stefan.getAge() << std::endl;
+
+    Person oliver;
+    oliver.setAge(16);
+    std::cout << oliver.getAge() << std::endl;
+
+
+
+
+    // SetConsoleOutputCP(65001);
+    // std::cout << "blä hej" << std::endl;
+    // double thevalue = 123.12325545;
+    // std::cout << std::fixed << std::setprecision(2) << thevalue; 
+    // //Player *p = new Player();
 
     int age2 = 12;
     changeAge(age2);
